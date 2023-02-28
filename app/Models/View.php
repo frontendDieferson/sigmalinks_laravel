@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class View extends Model
 {
     protected $fillable = ['id_page', 'view_date'];
-    public $timestamp = false;
+    public $timestamps = false;
 }

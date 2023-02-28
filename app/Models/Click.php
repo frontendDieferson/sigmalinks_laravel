@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Click extends Model
 {
     protected $fillable = ['id_link', 'click_date'];
-    public $timestamp = false;
+    public $timestamps = false;
 }

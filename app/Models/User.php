@@ -12,7 +12,7 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    public $timestamp = false;
+    public $timestamps = false;
 
     protected $hidden = [
         'password',
