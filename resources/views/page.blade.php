@@ -14,7 +14,7 @@
             padding: 20px;
             font-family: Arial, Helvetica, sans-serif;
             color:{{ $font_color }};
-            background-color: {{ $bg }}
+            background-color: {{$bg}};
 
         }
         .profileImage img {
@@ -34,6 +34,22 @@
             width: 100%;
             margin: 50px 0;
         }
+
+        .linkArea a {
+            display: block;
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .linkArea a.linksquare {
+            border-radius: 0;
+        }
+        .linkArea a.linkrounded {
+            border-radius: 50px;
+        }
         .banner a {
             color: {{ $font_color }};
         }
@@ -46,7 +62,15 @@
     <div class="profileTitle">{{$title}}</div>
     <div class="profileDescription">{{$description}}</div>
     <div class="linkArea">
-
+        @foreach ($links as $link)
+            <a href="{{$link->href}}"
+                class="link{{$link->op_border_type}}"
+                style="background-color: {{$link->op_bg_color}} ;
+                color: {{$link->op_text_color}};"
+                target="_blank"
+                >{{ $link->title }}
+            </a>
+        @endforeach
     </div>
 
     <div class="banner">
