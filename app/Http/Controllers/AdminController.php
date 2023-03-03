@@ -77,4 +77,22 @@ class AdminController extends Controller
             'pages' => $pages
         ]);
     }
+
+    public function pageLinks($slug) {
+        return view('admin/page_links', [
+            'menu' => 'links'
+        ]);
+    }
+
+    public function pageDesign($slug) {
+        return view('admin/page_design', [
+            'menu' => 'design'
+        ]);
+    }
+
+    public function pageStats($slug) {
+        return view('admin/page_stats', [
+            'menu' => 'stats'
+        ]);
+    }
 }

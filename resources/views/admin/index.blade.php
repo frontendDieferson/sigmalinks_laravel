@@ -17,7 +17,7 @@
     <tbody>
         @foreach ($pages as $page)
             <tr>
-                <td>{{$page->op_title}}({{$page->slug}})</td>
+                <td>{{$page->op_title}} - ( {{$page->slug}} )</td>
                 <td>
                     <a href="{{url('/'.$page->slug)}}" target="_blank">Abrir</a>
                     <a href="{{url('/admin/.$page->slug./links')}}">Links</a>

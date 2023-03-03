@@ -34,11 +34,11 @@ class PageController extends Controller
         ->get();
 
         // Registrar a visualização
-            // $view = View::firstOrNew(
-            //     ['id_page' => $page->id, 'view_date' => date('Y-m-d')]
-            // );
-            // $view->total++;
-            // $view->save();
+            $view = View::firstOrNew(
+                ['id_page' => $page->id, 'view_date' => date('Y-m-d')]
+            );
+            $view->total++;
+            $view->save();
 
         return view('page', [
             'font_color' => $page->op_font_color,

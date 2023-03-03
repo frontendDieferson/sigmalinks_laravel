@@ -9,6 +9,8 @@ body {
     margin: 0;
     display: flex;
     min-height: 100vh;
+    color: #EEE;
+    margin: 0 12px;
 }
 
 nav {
@@ -32,4 +34,80 @@ nav {
     flex-direction: column;
     min-height: 100vh;
     margin-left: 60px;
+}
+
+a {
+    color: #EEE;
+    text-decoration: none;
+}
+
+header {
+    background-color: #008F61;
+    padding: 0 10px;
+}
+header ul {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+header li {
+    border-bottom: 2px solid #008F61;
+}
+header li:hover {
+    border-bottom: 4px solid #01c98a;
+}
+header li a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: #2C303D;
+    font-weight: 500;
+}
+header li.active {
+    border-bottom: 4px solid #01c98a;
+}
+
+
+table {
+    margin: 10px;
+}
+table th {
+  text-align: left;
+  padding: 10px;
+  background-color: #1f2025;
+  border-radius: 5px;
+}
+
+table td {
+    text-align: left;
+    padding: 10px;
+    background-color: #1f2025;
+    border-bottom: 1px solid #008F61;
+}
+
+.preheader {
+    background-color: #1f2025;
+    padding: 10px 20px;
+    border-bottom: 1px solid #008F61;
+}
+
+.area {
+    display: flex;
+    flex: 1;
+}
+.area .leftside {
+    flex: 1;
+    border-right: 1px solid #008F61;
+}
+.area .rightside {
+    margin: 0 auto;
+}
+
+.area .rightside iframe {
+    width: 300;
+    height: 550px;
+    border: 8px solid #008F61;
+    border-radius: 20px;
+    margin: 20px;
 }
