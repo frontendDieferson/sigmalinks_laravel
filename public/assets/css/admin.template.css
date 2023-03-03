@@ -61,7 +61,7 @@ header li a {
     display: block;
     padding: 15px;
     text-decoration: none;
-    color: #2C303D;
+    color: #FFF;
     font-weight: 500;
 }
 header li.active {
@@ -102,12 +102,59 @@ table td {
 }
 .area .rightside {
     margin: 0 auto;
+    background-color: #FFF;
 }
 
 .area .rightside iframe {
     width: 300;
     height: 550px;
-    border: 8px solid #008F61;
+    border: 4px solid #008F61;
     border-radius: 20px;
     margin: 20px;
+}
+
+
+.bigbutton {
+    display: block;
+    margin: 20px;
+    padding: 15px;
+    background-color: #008F61;
+    border-radius: 10px;
+    color: #EEE;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+}
+.bigbutton:hover {
+    background-color: #005e40;
+}
+
+#links {
+    padding: 0;
+    list-style: none;
+    margin: 20px;
+}
+
+.link--item {
+    display: flex;
+    background-color: #008F61;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    padding: 10px;
+    align-items: center;
+    box-shadow: 0px 2px 2px #005e40;
+}
+
+.link--item-order {
+    cursor: move;
+    margin-right: 10px;
+}
+.link--item-info {
+    flex: 1;
+}
+.link--item-title {
+    font-weight: bold;
+}
+.link-item-buttons a:hover {
+    text-decoration: underline;
 }
