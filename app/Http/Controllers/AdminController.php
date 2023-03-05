@@ -98,8 +98,53 @@ class AdminController extends Controller
         } else {
             return redirect('/admin');
         }
-
     }
+
+    public function linkOrderUpdate($linkid, $pos) {
+        $user = Auth::user();
+
+        $link = Link::find($linkid);
+
+        $myPages = [];
+        $myPagesQuery = Page::where('id_user', $user->id)->get();
+        foreach($myPagesQuery as $pageItem) {
+            $myPages[] = $pageItem->id;
+        }
+        if(in_array($link->id_page, $myPages)) {
+            if($link->order > $pos) {
+                $afterLinks = Link::where('id_page', $link->id_page)
+                ->where('order', '>=', $pos)
+                ->get();
+                foreach($afterLinks as $afterLink) {
+                    $afterLink->order++;
+                    $afterLink->save();
+                }
+            } elseif($link->order < $pos) {
+                $beforeLinks = Link::where('id_page', $link->id_page)
+                ->where('order', '<=', $pos)
+                ->get();
+                foreach($beforeLinks as $beforeLink) {
+                    $beforeLink->order--;
+                    $beforeLink->save();
+                }
+            }
+            //Posicionando os Links
+            $link->order = $pos;
+            $link->save();
+
+            //Corrigindo as posições dos links
+            $allLinks = Link::where('id_page', $link->id_page)
+                ->orderBy('order', 'ASC')
+                ->get();
+                foreach($allLinks as $linkKey => $linkItem) {
+                    $linkItem->order = $linkKey;
+                    $linkItem->save();
+                }
+
+        }
+        return [];
+    }
+
 
     public function pageDesign($slug) {
         return view('admin/page_design', [
