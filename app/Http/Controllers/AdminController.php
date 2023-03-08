@@ -145,6 +145,22 @@ class AdminController extends Controller
         return [];
     }
 
+    public function newLink($slug) {
+        $user = Auth::user();
+        $page = Page::where('id_user', $user->id)
+            ->where('slug', $slug)
+            ->first();
+
+        if($page) {
+            return view('admin/page_editlink', [
+                'menu' => 'links',
+                'page' => $page
+            ]);
+        } else {
+            return redirect('/admin');
+        }
+    }
+
 
     public function pageDesign($slug) {
         return view('admin/page_design', [

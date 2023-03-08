@@ -24,6 +24,7 @@ Route::prefix('/admin')->group(function(){
     Route::get('/{slug}/stats', [AdminController::class, 'pageStats']);
 
     Route::get('/linkorder/{linkid}/{pos}', [AdminController::class, 'linkOrderUpdate']);
+    Route::get('/{slug}/newlink', [AdminController::class, 'newLink']);
 });
 
 Route::get('/{slug}', [PageController::class, 'index']);
