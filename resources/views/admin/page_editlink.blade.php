@@ -2,7 +2,7 @@
 
 @section('body')
 
-    <h3>Novo link</h3>
+    <h3>{{isset($link) ? 'Editar link' : 'Novo link'}}</h3>
     @if ($errors->any())
         <ul>
             @foreach ($errors->all() as $error)
@@ -16,31 +16,31 @@
         <label>
             Status: <br/>
             <select name="status">
-                <option value="1">Link Ativo</option>
-                <option value="0">Link Inativo</option>
+                <option {{isset($link) ? $link->status == '1' ? 'selected' : '' : ''}} value="1">Link Ativo</option>
+                <option {{isset($link) ? $link->status == '0' ? 'selected' : '' : ''}} value="0">Link Inativo</option>
             </select>
         </label>
         <label>
             Título do link: <br/>
-            <input type="text" name="title" />
+            <input type="text" name="title" value="{{$link->title ?? ''}}" />
         </label>
         <label>
             Url do link: <br/>
-            <input type="text" name="href" />
+            <input type="text" name="href" value="{{$link->href ?? ''}}"/>
         </label>
         <label>
             Cor do fundo: <br/>
-            <input type="color" name="op_bg_color" value="#FFF" />
+            <input type="color" name="op_bg_color" value="{{$link->op_bg_color ?? '#FFFFFF'}}"/>
         </label>
         <label>
             Cor do texto: <br/>
-            <input type="color" name="op_text_color" value="#000" />
+            <input type="color" name="op_text_color" value="{{$link->op_text_color ?? '#000000'}}" />
         </label>
         <label>
             Tipo da Borda: <br/>
             <select name="op_border_type">
-                <option value="square">Quadrado</option>
-                <option value="rounded">Arrendodado</option>
+                <option {{isset($link) ? $link->op_border_type == 'square' ? 'selected' : '' : ''}} value="square">Quadrado</option>
+                <option {{isset($link) ? $link->op_border_type == 'rounded' ? 'selected' : '' : ''}} value="rounded">Arrendodado</option>
             </select>
         </label>
         <label>
