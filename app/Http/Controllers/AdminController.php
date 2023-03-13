@@ -193,6 +193,35 @@ class AdminController extends Controller
         return redirect('/admin');
     }
 
+    public function delLink($slug, $linkid) {
+        $user = Auth::user();
+        $page = Page::where('slug', $slug)
+            ->where('id_user', $user->id)
+            ->first();
+
+            if($page) {
+                $link = Link::where('id_page', $page->id)
+                ->where('id', $linkid)
+                ->first();
+
+                if($link) {
+                    $link->delete();
+
+                    //Após deletar o link essa função irá reordenar os links no banco de dados
+                    $allLinks = Link::where('id_page', $page->id)
+                    ->orderBy('order', 'ASC')
+                    ->get();
+                    foreach($allLinks as $linkKey => $linkItem) {
+                        $linkItem->order = $linkKey;
+                        $linkItem->save();
+                    }
+
+                    return redirect('/admin/'.$page->slug.'/links');
+            }
+        }
+        return redirect('/admin');
+    }
+
     public function linkOrderUpdate($linkid, $pos) {
         $user = Auth::user();
 

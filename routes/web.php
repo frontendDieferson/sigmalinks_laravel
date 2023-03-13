@@ -29,6 +29,8 @@ Route::prefix('/admin')->group(function(){
 
     Route::get('/{slug}/editlink/{linkid}', [AdminController::class, 'editLink']);
     Route::post('/{slug}/editlink/{linkid}', [AdminController::class, 'editLinkAction']);
+
+    Route::get('/{slug}/dellink/{linkid}', [AdminController::class, 'delLink']);
 });
 
 Route::get('/{slug}', [PageController::class, 'index']);
