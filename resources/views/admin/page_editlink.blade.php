@@ -2,6 +2,15 @@
 
 @section('body')
 
+    <h3>Novo link</h3>
+    @if ($errors->any())
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    @endif
+
     <form method="POST">
         @csrf
         <label>

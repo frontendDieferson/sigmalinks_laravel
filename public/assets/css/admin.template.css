@@ -186,3 +186,7 @@ form input[type=submit] {
     border: 0;
     cursor: pointer;
 }
+
+h3 {
+    margin-left: 20px;
+}
